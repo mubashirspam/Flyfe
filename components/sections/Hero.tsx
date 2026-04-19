@@ -13,6 +13,7 @@ type LoadStage = "loading" | "fading" | "gone";
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef     = useRef<HTMLVideoElement>(null);
+  const mobileVideoRef = useRef<HTMLVideoElement>(null);
   const taglineRefs  = useRef<(HTMLDivElement | null)[]>([null, null, null]);
   const indicatorRef = useRef<HTMLDivElement>(null);
   const badgeRef     = useRef<HTMLDivElement>(null);
@@ -65,6 +66,7 @@ export default function Hero() {
   }, []);
 
   useScrollVideo(videoRef, containerRef, onProgress);
+  useScrollVideo(mobileVideoRef, containerRef, onProgress);
 
   // ── video init + loader ─────────────────────────────────────────────────
   useEffect(() => {
@@ -121,16 +123,28 @@ export default function Hero() {
         style={{ height: "100vh" }}
       >
         {/* Background video — scroll drives currentTime */}
-        <video
-          ref={videoRef}
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full"
-          style={{ objectFit: "cover", objectPosition: "center 60%", zIndex: 1 }}
-        >
-          <source src="/bg.mp4" type="video/mp4" />
-        </video>
+        <div className="absolute inset-0" style={{ zIndex: 1 }}>
+          <video
+            ref={videoRef}
+            muted
+            playsInline
+            preload="auto"
+            className="hidden md:block absolute inset-0 w-full h-full"
+            style={{ objectFit: "cover", objectPosition: "center 60%" }}
+          >
+            <source src="/bg.mp4" type="video/mp4" />
+          </video>
+          <video
+            ref={mobileVideoRef}
+            muted
+            playsInline
+            preload="auto"
+            className="block md:hidden absolute inset-0 w-full h-full"
+            style={{ objectFit: "cover", objectPosition: "center 60%" }}
+          >
+            <source src="/bgm.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         {/* Gradient overlay */}
         <div

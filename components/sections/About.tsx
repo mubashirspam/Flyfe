@@ -19,7 +19,7 @@ export default function About() {
           >
             <div ref={parallaxRef} className="parallax-inner">
               <img
-                src="/10.jpg"
+                src="/5.jpg"
                 alt="Wayanad landscape Kerala"
                 loading="lazy"
                 className="w-full h-full object-cover"
