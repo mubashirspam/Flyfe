@@ -60,9 +60,8 @@
   a { color: inherit; text-decoration: none; }
   button { cursor: pointer; border: none; background: none; font-family: inherit; }
 
-  ::-webkit-scrollbar { width: 6px; }
-  ::-webkit-scrollbar-track { background: var(--bg); }
-  ::-webkit-scrollbar-thumb { background: var(--gold); }
+  ::-webkit-scrollbar { width: 0px; }
+ 
 }
 
 /* ── KEYFRAMES (outside layers — not affected by cascade) ── */
