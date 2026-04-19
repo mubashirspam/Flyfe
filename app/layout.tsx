@@ -1,25 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const dmSans = DM_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  style: ["normal", "italic"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "FLYFE Developers Private Limited | Coming Soon",
-  description: "Building the future of development. FLYFE Developers Private Limited - Premium software development services.",
-  keywords: ["FLYFE", "developers", "software", "web development", "app development", "coming soon"],
-  authors: [{ name: "FLYFE Developers Private Limited" }],
+  title: "Flyfe Developers — Building Tomorrow's Landmarks",
+  description:
+    "Premium luxury properties and resort developments in Wayanad, Kerala. Flyfe Developers crafts landmark real estate for discerning investors and homeowners.",
+  keywords: [
+    "Flyfe Developers",
+    "luxury real estate",
+    "Wayanad",
+    "Kerala",
+    "resort development",
+    "NRI investment",
+    "Balhiz Vista",
+  ],
+  authors: [{ name: "Flyfe Developers Pvt. Ltd." }],
   openGraph: {
-    title: "FLYFE Developers Private Limited | Coming Soon",
-    description: "Building the future of development",
+    title: "Flyfe Developers — Building Tomorrow's Landmarks",
+    description: "Premium luxury properties and resort developments in Wayanad, Kerala.",
     type: "website",
   },
 };
@@ -30,11 +45,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased dark`}
-    >
-      <body className="min-h-full flex flex-col bg-[#0a0a0f] text-white">{children}</body>
+    <html lang="en" className={`${cormorant.variable} ${dmSans.variable}`}>
+      <body className="min-h-full antialiased">{children}</body>
     </html>
   );
 }
